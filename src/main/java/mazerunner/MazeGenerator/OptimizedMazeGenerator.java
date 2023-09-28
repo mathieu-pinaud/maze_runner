@@ -1,12 +1,16 @@
 package mazerunner.MazeGenerator;
-public class OptimizedMazeGenerator extends Maze implements MazeGenerator {
+
+public class OptimizedMazeGenerator extends GraphMaze implements MazeGenerator {
 
     public OptimizedMazeGenerator(boolean perfect, int width, int height) {
         super(perfect, width, height);
-        System.out.println("OptimizedMazeGenerator: perfect = " + this.isPerfect() + ", width = " + this.getWidth() + ", height = " + this.getHeight());
-    } 
-    public void generateMaze() {
-            System.out.println("OptimizedMazeGenerator: generateMaze()");
+        double i = System.nanoTime();
+        generateMaze();
+        if (!this.isPerfect()) {
+            makeImperfect();
         }
-    
+        i = (System.nanoTime() - i) / 1000000;
+        printMaze();
+        System.out.println("Temps de generation: " + i + " millisecondes");
+    } 
 }

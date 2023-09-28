@@ -20,7 +20,7 @@ public class ParamVerif {
         try {
             this.width = Integer.parseInt(args[0]);
             this.height = Integer.parseInt(args[1]);
-            if (Integer.parseInt(args[1]) < 0 || Integer.parseInt(args[0]) < 0) {
+            if (Integer.parseInt(args[1]) < 5 || Integer.parseInt(args[0]) < 5) {
                 throw new Exception();
             }
         } catch (Exception e) {
